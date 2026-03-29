@@ -1,14 +1,12 @@
 # render.yaml
 # Render deployment configuration for JuristLens
-# Push this to GitHub and connect repo to Render
+# Uses Docker for full Python version control
 
 services:
   - type: web
     name: juristmind-juristlens
-    env: python
-    pythonVersion: "3.11.9"
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    env: docker
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: ANTHROPIC_API_KEY
         sync: false           # Set manually in Render dashboard
