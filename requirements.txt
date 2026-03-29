@@ -9,7 +9,7 @@ uvicorn[standard]==0.29.0     # ASGI server to run FastAPI on Render
 python-multipart==0.0.9       # Required for file uploads in FastAPI
 
 # ── Anthropic Claude API ───────────────────────
-anthropic==0.28.0             # Claude claude-sonnet-4-6 API client
+anthropic==0.40.0             # Claude claude-sonnet-4-6 API client (updated for model support)
 
 # ── Supabase ───────────────────────────────────
 supabase==2.4.6               # Supabase Python client for DB operations
@@ -26,7 +26,7 @@ httpx==0.27.0                 # Async HTTP (used internally by some libraries)
 reportlab==4.1.0              # Generate professional PDF reports
 
 # ── Environment Variables ──────────────────────
-pydantic-settings==2.2.1      # Load .env file and validate settings
+pydantic-settings==2.3.4      # Load .env file and validate settings (aligned with pydantic 2.7)
 python-dotenv==1.0.1          # .env file support for local development
 
 # ── Data Validation ────────────────────────────
