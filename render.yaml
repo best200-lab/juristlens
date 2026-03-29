@@ -1,16 +1,17 @@
+# render.yaml
+# Render deployment configuration for JuristLens
+# Push this to GitHub and connect repo to Render
+
 services:
   - type: web
     name: juristmind-juristlens
     env: python
+    pythonVersion: "3.11.9"
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
-
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.9   # ✅ ADD THIS LINE (CRITICAL)
-
       - key: ANTHROPIC_API_KEY
-        sync: false
+        sync: false           # Set manually in Render dashboard
       - key: SUPABASE_URL
         sync: false
       - key: SUPABASE_SERVICE_KEY
@@ -19,6 +20,5 @@ services:
         value: production
       - key: CLAUDE_MODEL
         value: claude-sonnet-4-6
-
     healthCheckPath: /api/health
-    autoDeploy: true
+    autoDeploy: true          # Auto deploy on every GitHub push
